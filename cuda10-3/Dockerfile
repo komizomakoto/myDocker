@@ -5,8 +5,8 @@
 # 仮想化するベースOS
 FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 RUN touch /etc/apt/apt.conf
-RUN echo "Acquire::http::proxy 'http://in-proxy-o.denso.co.jp:8080';" >> /etc/apt/apt.conf
-RUN echo "Acquire::https::proxy 'http://in-proxy-o.denso.co.jp:8080';" >> /etc/apt/apt.conf
+RUN echo "Acquire::http::proxy "http://in-proxy-o.denso.co.jp:8080";" >> /etc/apt/apt.conf
+RUN echo "Acquire::https::proxy "http://in-proxy-o.denso.co.jp:8080";" >> /etc/apt/apt.conf
 
 # RUN apt update
 # RUN apt install -y curl gnupg2 lsb-release git build-essential
