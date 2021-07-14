@@ -19,7 +19,7 @@ RUN bash /opt/Anaconda3-2020.02-Linux-x86_64.sh -b -p /opt/anaconda3 && \
      echo "export PATH=/opt/anaconda3/bin:$PATH" >> ~/.bashrc && \
      . ~/.bashrc && \
      conda init
-
+# Ref(anaconda install): https://qiita.com/toshinori622/items/638e2474a2e5b1341a9a
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y tzdata
@@ -27,14 +27,14 @@ RUN apt-get update && apt-get install -y tzdata
 ENV TZ=Asia/Tokyo 
 
 
-RUN apt install -y dbus dbus-x11 xorg xserver-xorg-legacy xinit xterm
+# RUN apt install -y dbus dbus-x11 xorg xserver-xorg-legacy xinit xterm
 
-RUN sed -i "s/allowed_users=console/allowed_users=anybody/;$ a needs_root_rights=yes" /etc/X11/Xwrapper.config
-ARG user=user
-ARG uid=1000
+# RUN sed -i "s/allowed_users=console/allowed_users=anybody/;$ a needs_root_rights=yes" /etc/X11/Xwrapper.config
+# ARG user=user
+# ARG uid=1000
 # RUN useradd ${user} -u $uid -m -G adm,dialout,cdrom,sudo,audio,dip,video,plugdev,netdev -s /bin/bash
 
-CMD [ "/usr/bin/startx", "--", "vt7" ]
+# CMD [ "/usr/bin/startx", "--", "vt7" ]
 # # 各環境変数を設定
 # ENV USER ubuntu
 # ENV HOME /home/${USER}
@@ -55,5 +55,4 @@ CMD [ "/usr/bin/startx", "--", "vt7" ]
 # WORKDIR ${HOME}
 
 
-# export PATH=$PATH:/usr/local/cuda/bin
-# export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+# pip install tensorflow-gpu==2.4
