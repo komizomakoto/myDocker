@@ -8,19 +8,19 @@ RUN touch /etc/apt/apt.conf
 RUN echo "Acquire::http::proxy 'http://in-proxy-o.denso.co.jp:8080';" >> /etc/apt/apt.conf
 RUN echo "Acquire::https::proxy 'http://in-proxy-o.denso.co.jp:8080';" >> /etc/apt/apt.conf
 
-RUN apt update
-RUN apt install -y curl gnupg2 lsb-release git build-essential
+# RUN apt update
+# RUN apt install -y curl gnupg2 lsb-release git build-essential
 
-RUN apt install -y vim
-RUN apt update && apt-get -y upgrade
-RUN apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 wget -y
-RUN apt install libsm6 libxrender1 libxext-dev
-RUN wget -P /opt https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
-RUN bash /opt/Anaconda3-2020.02-Linux-x86_64.sh -b -p /opt/anaconda3 && \
-     rm /opt/Anaconda3-2020.02-Linux-x86_64.sh && \
-     echo "export PATH=/opt/anaconda3/bin:$PATH" >> ~/.bashrc && \
-     . ~/.bashrc && \
-     conda init
+# RUN apt install -y vim
+# RUN apt update && apt-get -y upgrade
+# RUN apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 wget -y
+# RUN apt install libsm6 libxrender1 libxext-dev
+# RUN wget -P /opt https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+# RUN bash /opt/Anaconda3-2020.02-Linux-x86_64.sh -b -p /opt/anaconda3 && \
+#      rm /opt/Anaconda3-2020.02-Linux-x86_64.sh && \
+#      echo "export PATH=/opt/anaconda3/bin:$PATH" >> ~/.bashrc && \
+#      . ~/.bashrc && \
+#      conda init
 # # 各環境変数を設定
 # ENV USER ubuntu
 # ENV HOME /home/${USER}
