@@ -1,11 +1,12 @@
 # usage
 # step1. docker build -t `image name` .
-# step2. docker run --rm -it `image name` /bin/bash
-
+# step2. docker run --gpus all --rm -it --privileged \
+            #  --env="DISPLAY=$DISPLAY" \
+            #  --env="QT_X11_NO_MITSHM=1" \
+            #  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --volume="$HOME/mydir/volume-test/:/root/" \
+            #  `image name` /bin/bash
 # 仮想化するベースOS
 FROM nvidia/cuda:11.4.0-devel-ubuntu20.04
-# 誰が作ったかは入れておきましょう
-MAINTAINER ubuntu
 
 RUN apt-get update && apt-get install -y curl gnupg2 lsb-release git build-essential
 
@@ -56,3 +57,5 @@ ENV TZ=Asia/Tokyo
 
 
 # pip install tensorflow-gpu==2.4
+
+# docker xserver: https://qiita.com/oreyutarover/items/cca3511012b6ad97a1ce
