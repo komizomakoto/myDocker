@@ -21,6 +21,11 @@ RUN bash /opt/Anaconda3-2020.02-Linux-x86_64.sh -b -p /opt/anaconda3 && \
      echo "export PATH=/opt/anaconda3/bin:$PATH" >> ~/.bashrc && \
      . ~/.bashrc && \
      conda init
+
+RUN git clone https://github.com/theAIGuysCode/yolov4-deepsort
+WORKDIR /yolov4-deepsort
+RUN conda env create -f conda-gpu.yml
+RUN conda activate yolov4-gpu
 # # 各環境変数を設定
 # ENV USER ubuntu
 # ENV HOME /home/${USER}
