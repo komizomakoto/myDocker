@@ -21,6 +21,7 @@ RUN bash /opt/Anaconda3-2020.02-Linux-x86_64.sh -b -p /opt/anaconda3 && \
      echo "export PATH=/opt/anaconda3/bin:$PATH" >> ~/.bashrc && \
      . ~/.bashrc && \
      conda init
+WORKDIR /root
 RUN mkdir tmp
 RUN git clone https://github.com/theAIGuysCode/yolov4-deepsort
 WORKDIR /yolov4-deepsort
