@@ -25,8 +25,8 @@ WORKDIR /root
 RUN mkdir tmp
 RUN git clone https://github.com/theAIGuysCode/yolov4-deepsort
 WORKDIR /yolov4-deepsort
-RUN conda env create -f conda-gpu.yml
-RUN conda activate yolov4-gpu
+# RUN conda env create -f conda-gpu.yml
+# RUN conda activate yolov4-gpu
 # # 各環境変数を設定
 # ENV USER ubuntu
 # ENV HOME /home/${USER}
